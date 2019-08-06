@@ -167,7 +167,7 @@
                     <h2 id="intro"><a href="#intro" class="headerlink" title="intro"></a>intro</h2><p>k3s已经发布了几天时间，趁着手头的Vultr优惠券还没有过期，正好可以开几台机器尝试一下这个很热门的新项目。</p>
 <p>这个项目是RancherLab所开发的，之前使用k8s和swarm的时候也用过不少rancher，对其很方便的图形化容器管理感到很惊艳。感觉rancher和k8s其实应该算是竞争关系。rancher的两个版本都提供容器编排和调度，但是k8s的社区发展的越来越强大，rancher慢慢变成算是提供k8s的上层服务了，通过rancher管理多个k8s。</p>
 <p>好了vultr上的机器开好了，使用Ubuntu 18.04 x64 的快照，之前预装了docker之类的工具。虽然开了三台机器，不过首先还是试试单机的k3s吧。</p>
-<p>通过github的项目repo找到Readme先了解一下：<a href="https://github.com/rancher/k3s" target="_blank" rel="noopener">https://github.com/rancher/k3s</a></p>
+<p>通过github的项目repo找到Readme先了解一下：<a href="https://github.com/rancher/k3s" target="_blank" rel="external">https://github.com/rancher/k3s</a></p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><p>k3s已经使用了containerd替换Docker来做runtime，所以我们可以在RancherOS停止Docker。containerd本身就是Docker的一部分，完全兼容我们所熟悉的Docker。</p>
 <p>官网提供了两种方法，一种就是下载下载repo的release然后自行安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /opt &amp;&amp; wget https://github.com/rancher/k3s/releases/download/v0.2.0/k3s</span><br><span class="line">chmod +x k3s &amp;&amp; ./k3s server &amp;</span><br></pre></td></tr></table></figure></p>
 <p>另外一种是通过类似于getdocker之类的官方脚本</p>
@@ -192,7 +192,7 @@
 <p>配置之后可以试一试能不能够ping通关联的机器。也可能需要重启类配置。</p>
 <p>这样多节点的k3s部署好了，就像swarm一样方便感觉。之后再尝试部署一些复杂的应用吧。</p>
 <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="https://github.com/rancher/k3s" target="_blank" rel="noopener">https://github.com/rancher/k3s</a></li>
+<li><a href="https://github.com/rancher/k3s" target="_blank" rel="external">https://github.com/rancher/k3s</a></li>
 </ul>
 
                 </article>
@@ -210,14 +210,14 @@
     
     <nav id="gobottom" class="pagination">
         
-        <a class="prev-post" title="和弦级数和blues入门-1" href="/2019/03/20/和弦级数和blues入门-1/">
-            ← 和弦级数和blues入门-1
+        <a class="prev-post" title="Using Kafka as a Event Store" href="/2019/02/10/Using-Kafka-as-a-Event-Store/">
+            ← Using Kafka as a Event Store
         </a>
         
         <span class="prev-next-post">·</span>
         
-        <a class="next-post" title="Using Kafka as a Event Store" href="/2019/02/10/Using-Kafka-as-a-Event-Store/">
-            Using Kafka as a Event Store →
+        <a class="next-post" title="和弦级数和blues入门-1" href="/2019/03/20/和弦级数和blues入门-1/">
+            和弦级数和blues入门-1 →
         </a>
         
     </nav>
@@ -398,8 +398,8 @@
 		</div>
 		<nav class="site-footer-nav">
 			
-			<a href="https://hexo.io" title="Hexo" target="_blank" rel="noopener">Hexo</a>
-			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="noopener">Casper</a>
+			<a href="https://hexo.io" title="Hexo" target="_blank" rel="external">Hexo</a>
+			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="external">Casper</a>
 		</nav>
 	</div>
 </footer>

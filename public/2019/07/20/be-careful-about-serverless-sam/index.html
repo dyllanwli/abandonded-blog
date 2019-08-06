@@ -164,7 +164,7 @@
             
             <div class="post-full-content">
                 <article id="lightgallery" class="markdown-body">
-                    <h2 id="intro"><a href="#intro" class="headerlink" title="intro"></a>intro</h2><p>Recently I am doing some work related to serverless. I am working on a service developed with full AWS stack. We use cloudfront and S3 for our CDN and static storage. At most case, our service is executed call-as-we-need, but still with high-throughput. At the very first beginning, using AWS lambda and API Gateway seems a reasonable choice. Low cost, easy to maintain. And we got the previous SAM (serverless application model) experience. We using CloudFormation <a href="https://docs.aws.amazon.com/zh_cn/AWSCloudFormation/latest/UserGuide/template-macros.html" target="_blank" rel="noopener">Macro</a> to make template more easier to use, reduce the coding work. But the Macro is uncontrollable, we can not debug the Macro when we come up with trouble. </p>
+                    <h2 id="intro"><a href="#intro" class="headerlink" title="intro"></a>intro</h2><p>Recently I am doing some work related to serverless. I am working on a service developed with full AWS stack. We use cloudfront and S3 for our CDN and static storage. At most case, our service is executed call-as-we-need, but still with high-throughput. At the very first beginning, using AWS lambda and API Gateway seems a reasonable choice. Low cost, easy to maintain. And we got the previous SAM (serverless application model) experience. We using CloudFormation <a href="https://docs.aws.amazon.com/zh_cn/AWSCloudFormation/latest/UserGuide/template-macros.html" target="_blank" rel="external">Macro</a> to make template more easier to use, reduce the coding work. But the Macro is uncontrollable, we can not debug the Macro when we come up with trouble. </p>
 <p>Here comes the problem.</p>
 <h2 id="Bug-with-Dynamodb"><a href="#Bug-with-Dynamodb" class="headerlink" title="Bug with Dynamodb"></a>Bug with Dynamodb</h2><p>We defined a certain number of DynamoDB table on the CloudFormation, and another CloudFormation stack the refer those content in the table. The official way is define some Output in the table template, the export those attributed (e.g. ARN) from DynamoDB. </p>
 <p>The Stack will refer those content using ImportValue. However, after we update the stack add those Output, it will throw out internal error. </p>
@@ -195,11 +195,11 @@
     
     <nav id="gobottom" class="pagination">
         
-        <span class="prev-next-post">·</span>
-        
-        <a class="next-post" title="和弦级数的记忆" href="/2019/04/01/和弦级数的记忆/">
-            和弦级数的记忆 →
+        <a class="prev-post" title="和弦级数的记忆" href="/2019/04/01/和弦级数的记忆/">
+            ← 和弦级数的记忆
         </a>
+        
+        <span class="prev-next-post">·</span>
         
     </nav>
 
@@ -379,8 +379,8 @@
 		</div>
 		<nav class="site-footer-nav">
 			
-			<a href="https://hexo.io" title="Hexo" target="_blank" rel="noopener">Hexo</a>
-			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="noopener">Casper</a>
+			<a href="https://hexo.io" title="Hexo" target="_blank" rel="external">Hexo</a>
+			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="external">Casper</a>
 		</nav>
 	</div>
 </footer>

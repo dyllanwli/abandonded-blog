@@ -168,22 +168,22 @@
 <blockquote>
 <p>The Kafka cluster retains all published messages—whether or not they<br>have been consumed—<strong>for a configurable period of time</strong>. For example if<br>the retention is set for two days, then for the two days after a<br>message is published it is available for consumption, after which it<br>will be discarded to free up space. Kafka’s performance is effectively<br>constant with respect to data size so retaining lots of data is not a<br>problem.</p>
 </blockquote>
-<p>So while messages can potentially be retained indefinitely, the expectation is that they will be deleted. This doesn’t mean you can’t use this as an event store, but it may be better to use something else. Take a look at <a href="http://geteventstore.com/" target="_blank" rel="noopener">EventStore</a> for an alternative.</p>
-<p><a href="http://kafka.apache.org/documentation.html" target="_blank" rel="noopener">Kafka documentation</a>:</p>
+<p>So while messages can potentially be retained indefinitely, the expectation is that they will be deleted. This doesn’t mean you can’t use this as an event store, but it may be better to use something else. Take a look at <a href="http://geteventstore.com/" target="_blank" rel="external">EventStore</a> for an alternative.</p>
+<p><a href="http://kafka.apache.org/documentation.html" target="_blank" rel="external">Kafka documentation</a>:</p>
 <blockquote>
 <p>Event sourcing is a style of application design where state changes are logged as a time-ordered sequence of records. Kafka’s support for very large stored log data makes it an excellent backend for an application built in this style.</p>
 </blockquote>
 <p>One concern with using Kafka for event sourcing is the number of required topics. Typically in event sourcing, there is a stream (topic) of events per entity (such as user, product, etc). This way, the current state of an entity can be reconstituted by re-applying all events in the stream. Each Kafka topic consists of one or more partitions and each partition is stored as a directory on the file system. There will also be pressure from ZooKeeper as the number of znodes increases.</p>
 <p>Other things that we should notice are:</p>
 <ul>
-<li>Kafka only guarantees at least once deliver and there are duplicates<br>in the event store that cannot be removed.<br>Here you can read why it is so hard with Kafka and some latest news about how to finally achieve this behavior: <a href="https://www.confluent.io/blog/exactly-once-semantics-are-possible-heres-how-apache-kafka-does-it/" target="_blank" rel="noopener">https://www.confluent.io/blog/exactly-once-semantics-are-possible-heres-how-apache-kafka-does-it/</a></li>
+<li>Kafka only guarantees at least once deliver and there are duplicates<br>in the event store that cannot be removed.<br>Here you can read why it is so hard with Kafka and some latest news about how to finally achieve this behavior: <a href="https://www.confluent.io/blog/exactly-once-semantics-are-possible-heres-how-apache-kafka-does-it/" target="_blank" rel="external">https://www.confluent.io/blog/exactly-once-semantics-are-possible-heres-how-apache-kafka-does-it/</a></li>
 <li>Due to immutability, there is no way to manipulate event store when application evolves and events need to be transformed (there are of course methods like upcasting, but…). Once might say you never need to transform events, but that is not correct assumption, there could be situation where you do backup of original, but you upgrade them to latest versions. That is valid requirement in event driven architectures.</li>
 <li>No place to persist snapshots of entities/aggregates and replay will become slower and slower. Creating snapshots is must feature for event store from long term perspective. </li>
 <li>Given Kafka partitions are distributed and they are hard to manage and<br>backup compare with databases. Databases are simply simpler</li>
 </ul>
 <p>So, before you make your choice you think twice. Event store as combination of application layer interfaces (monitoring and management), SQL/NoSQL store and Kafka as broker is better choice than leaving Kafka handle both roles to create complete feature full solution.</p>
 <p>Event store is complex service which requires more than what Kafka can offer if you are serious about applying Event sourcing, CQRS, Sagas and other patterns in event driven architecture and stay high performance.</p>
-<p>Please look at eventuate.io microservices open source framework to discover more about the potential problems: <a href="http://eventuate.io/" target="_blank" rel="noopener">http://eventuate.io/</a></p>
+<p>Please look at eventuate.io microservices open source framework to discover more about the potential problems: <a href="http://eventuate.io/" target="_blank" rel="external">http://eventuate.io/</a></p>
 <h3 id="Back-to-Topic"><a href="#Back-to-Topic" class="headerlink" title="Back to Topic"></a>Back to Topic</h3><ul>
 <li>Using Kafka as a event soursing? Yes or No, depending on your event sourcing usage.</li>
 <li>It can be used in downstream event processors<br>In this kind of system, events happen in the real world and are recorded as facts. Such as a warehouse system to keep track of pallets of products. There are basically no conflicting events. Everything has already happened, even if it was wrong. (I.e. pallet 123456 put on truck A, but was scheduled for truck B.) Then later the facts are checked for exceptions via reporting mechanisms. Kafka seems well-suited for this kind of down-stream, event processing application.</li>
@@ -217,14 +217,14 @@
     
     <nav id="gobottom" class="pagination">
         
-        <a class="prev-post" title="k3s-轻量级Kubernetes上手" href="/2019/03/09/k3s-轻量级Kubernetes上手/">
-            ← k3s-轻量级Kubernetes上手
+        <a class="prev-post" title="2019 Aspiration" href="/2018/12/31/2019-Aspiration/">
+            ← 2019 Aspiration
         </a>
         
         <span class="prev-next-post">·</span>
         
-        <a class="next-post" title="2019 Aspiration" href="/2018/12/31/2019-Aspiration/">
-            2019 Aspiration →
+        <a class="next-post" title="k3s-轻量级Kubernetes上手" href="/2019/03/09/k3s-轻量级Kubernetes上手/">
+            k3s-轻量级Kubernetes上手 →
         </a>
         
     </nav>
@@ -405,8 +405,8 @@
 		</div>
 		<nav class="site-footer-nav">
 			
-			<a href="https://hexo.io" title="Hexo" target="_blank" rel="noopener">Hexo</a>
-			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="noopener">Casper</a>
+			<a href="https://hexo.io" title="Hexo" target="_blank" rel="external">Hexo</a>
+			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="external">Casper</a>
 		</nav>
 	</div>
 </footer>
